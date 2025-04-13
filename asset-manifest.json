@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/TeaArtProject/static/css/main.d652f125.css",
+    "main.js": "/TeaArtProject/static/js/main.09c5ff97.js",
+    "static/js/787.ddb4019e.chunk.js": "/TeaArtProject/static/js/787.ddb4019e.chunk.js",
+    "index.html": "/TeaArtProject/index.html",
+    "main.d652f125.css.map": "/TeaArtProject/static/css/main.d652f125.css.map",
+    "main.09c5ff97.js.map": "/TeaArtProject/static/js/main.09c5ff97.js.map",
+    "787.ddb4019e.chunk.js.map": "/TeaArtProject/static/js/787.ddb4019e.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d652f125.css",
+    "static/js/main.09c5ff97.js"
+  ]
+}
