@@ -1,0 +1,31 @@
+.tea-poster {
+    position: relative;
+    transition: background-color 0.4s ease;
+    border-radius: 20px;
+    padding: 1.5rem;
+    width: 300px;
+    margin: auto;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    border: 2px dashed #ccc;
+  }
+  .tea-poster:hover {
+    border-color: #a3815f;
+    transform: translateY(-4px);
+  }
+  
+  .tea-poster-img {
+    width: 160px;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+  }
+  
+  .tea-desc {
+    font-size: 0.95rem;
+    color: #5c4a3d;
+    font-family: 'Georgia', serif;
+    line-height: 1.5;
+  }
+
+  
+  
