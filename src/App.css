@@ -1,5 +1,11 @@
 .App {
   text-align: center;
+  /* background-image: url(`${process.env.PUBLIC_URL + '/images/bkgd.png'}),
+  background-size: cover;
+  background-position: center; */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 .App-logo {
@@ -24,6 +30,15 @@
   color: rgb(255, 255, 255);
 }
 
+h1 {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  margin: 0;
+  padding: 0;
+}
+
+
 .App-link {
   color: #61dafb;
 }
@@ -42,7 +57,7 @@
   grid-template-columns: 120px auto;
   grid-template-rows: auto auto;
   gap: 1.5rem;
-  margin-top: 3rem;
+  margin-top: 5rem;
   justify-content: center;
   align-items: start;
 }
@@ -94,4 +109,94 @@
 .heat-section:active {
   background-color: #ffd3d3;
   transform: scale(0.98);
+}
+
+.download-button {
+  margin: 50px auto;
+  padding: 12px 24px;
+  background-color: #b4996c; /* 柠檬黄 */
+  color: rgb(255, 255, 255);
+  font-size: 16px;
+  border: none;
+  border-radius: 999px; /* 圆角 */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  display: block;
+  transition: background-color 0.3s ease;
+}
+
+.download-button:hover {
+  background-color: #8a774a; /* 深一点的黄 */
+}
+
+.instruction-button {
+  margin: 50px auto;
+  padding: 12px 24px;
+  background-color: #b4996c; /* 柠檬黄 */
+  color: rgb(255, 255, 255);
+  font-size: 16px;
+  border: none;
+  border-radius: 999px; /* 圆角 */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  display: block;
+  transition: background-color 0.3s ease;
+}
+
+.instruction-button:hover {
+  background-color: #8a774a; /* 深一点的黄 */
+}
+
+.button-group {
+  display: flex;
+  justify-content: center;
+  width: 30%;
+  gap: 20px;
+  margin: 30px auto; /* 控制整体外边距 */
+}
+
+.footer {
+  margin-top: 150px; /* ⬅️ 增大间距 */
+  padding: 20px 0;
+  text-align: center;
+  font-size: 14px;
+  color: #444;
+  background-color: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(5px);
+  border-top: 1px dashed #ccc;
+}
+
+
+.instruction-panel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 350px;
+  height: 100%;
+  background-color: #fffefc;
+  box-shadow: -4px 0 10px rgba(0, 0, 0, 0.1);
+  padding: 30px 20px;
+  z-index: 999;
+  transition: transform 0.3s ease;
+}
+
+.instruction-panel h2 {
+  margin-top: 0;
+}
+
+.instruction-panel ul {
+  list-style: none;
+  padding-left: 0;
+  line-height: 1.8;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 14px;
+  border: none;
+  background: none;
+  font-size: 20px;
+  cursor: pointer;
+  color: #666;
 }
