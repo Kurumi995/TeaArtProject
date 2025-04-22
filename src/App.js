@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 import TeaType from "./components/TeaType";
 import IcePanel from "./components/IcePanel";
@@ -15,12 +15,35 @@ const teas = [
 ];
 
 function App() {
-  const [tea, setTea] = useState(teas[0]);
-  const [iceCount, setIceCount] = useState(0);
-  const [temperature, setTemperature] = useState(100); 
+  const [tea, setTea] = useState(() => {
+    const savedTea = localStorage.getItem('tea');
+    return savedTea ? JSON.parse(savedTea) : teas[0];
+  });
+  
+  const [iceCount, setIceCount] = useState(() => {
+    return parseInt(localStorage.getItem('iceCount')) || 0;
+  });
+  
+  const [temperature, setTemperature] = useState(() => {
+    return parseInt(localStorage.getItem('temperature')) || 100;
+  });
+  
+
+  useEffect(() => {
+    localStorage.setItem('tea', JSON.stringify(tea));
+  }, [tea]);
+  
+  useEffect(() => {
+    localStorage.setItem('iceCount', iceCount);
+  }, [iceCount]);
+  
+  useEffect(() => {
+    localStorage.setItem('temperature', temperature);
+  }, [temperature]);
+  
 
   const handleDrop = (e) => {
-    e.preventDefault();
+    // e.preventDefault();
     const data = e.dataTransfer.getData('text/plain');
     if (data === 'cold') {
       setIceCount((prev) => prev + 1);
@@ -53,7 +76,6 @@ function App() {
       <div className="tea-grid">
         <IcePanel iceCount={iceCount} />
         <HeatPanel temperature={temperature} onHeat={handleHeatClick} />
-
         <div className="poster-section">
           <Poster
             tea={tea}
