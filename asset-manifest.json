@@ -1,15 +1,16 @@
 {
   "files": {
-    "main.css": "/TeaArtProject/static/css/main.d652f125.css",
-    "main.js": "/TeaArtProject/static/js/main.822d39f7.js",
+    "main.css": "/TeaArtProject/static/css/main.962c524a.css",
+    "main.js": "/TeaArtProject/static/js/main.abd5f38c.js",
     "static/js/787.ddb4019e.chunk.js": "/TeaArtProject/static/js/787.ddb4019e.chunk.js",
+    "static/media/bkgd.png": "/TeaArtProject/static/media/bkgd.ba11e57f47ba42f5d192.png",
     "index.html": "/TeaArtProject/index.html",
-    "main.d652f125.css.map": "/TeaArtProject/static/css/main.d652f125.css.map",
-    "main.822d39f7.js.map": "/TeaArtProject/static/js/main.822d39f7.js.map",
+    "main.962c524a.css.map": "/TeaArtProject/static/css/main.962c524a.css.map",
+    "main.abd5f38c.js.map": "/TeaArtProject/static/js/main.abd5f38c.js.map",
     "787.ddb4019e.chunk.js.map": "/TeaArtProject/static/js/787.ddb4019e.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.d652f125.css",
-    "static/js/main.822d39f7.js"
+    "static/css/main.962c524a.css",
+    "static/js/main.abd5f38c.js"
   ]
 }
