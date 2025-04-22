@@ -6,7 +6,6 @@ import IcePanel from "./components/IcePanel";
 import HeatPanel from "./components/HeatPanel";
 import Poster from "./components/Poster";
 
-const fonts = ['Serif', 'Cursive', 'Monospace'];
 const teas = [
   { name: 'Green Tea', image: process.env.PUBLIC_URL + '/images/Green.png' },
   { name: 'Oolong Tea', image: process.env.PUBLIC_URL + '/images/Oolong.png' },
@@ -17,22 +16,23 @@ const teas = [
 
 
 function App() {
+  /** Selected tea type state, loaded from localStorage if available */
   const [tea, setTea] = useState(() => {
     const savedTea = localStorage.getItem('tea');
     return savedTea ? JSON.parse(savedTea) : teas[0];
   });
   
+  /** Number of ice cubes added to tea, loaded from localStorage */
   const [iceCount, setIceCount] = useState(() => {
     return parseInt(localStorage.getItem('iceCount')) || 0;
   });
-  
+  /** Temperature of tea, loaded from localStorage */
   const [temperature, setTemperature] = useState(() => {
     return parseInt(localStorage.getItem('temperature')) || 100;
   });
-
+  /** Whether the instruction sidebar is currently shown */
   const [showInstructions, setShowInstructions] = useState(false);
   
-
   useEffect(() => {
     localStorage.setItem('tea', JSON.stringify(tea));
   }, [tea]);
@@ -45,7 +45,10 @@ function App() {
     localStorage.setItem('temperature', temperature);
   }, [temperature]);
   
-
+  /**
+   * Handle drop event on Poster component to add ice cube and lower temperature
+   * @param {DragEvent} e - Drag and drop event object
+   */
   const handleDrop = (e) => {
     // e.preventDefault();
     const data = e.dataTransfer.getData('text/plain');
@@ -54,16 +57,24 @@ function App() {
       setTemperature((prev) => Math.max(0, prev - 10));
     }
   };
-
+  /**
+   * Allow drop by preventing default behavior
+   * @param {DragEvent} e - Drag event object
+   */
   const handleDragOver = (e) => {
     e.preventDefault();
   };
 
+  /** Increase temperature when HeatPanel is clicked */
   const handleHeatClick = () => {
     setTemperature((prev) => Math.min(100, prev + 5));
   };  
 
   const posterRef = useRef(null);
+  /**
+   * Capture the Poster section and download it as PNG
+   * Uses html2canvas to take a screenshot of the ref
+   */
   const handleDownload = async () => {
     if (posterRef.current) {
       const canvas = await html2canvas(posterRef.current);
@@ -79,7 +90,7 @@ function App() {
     style={{
       backgroundImage: `url(${process.env.PUBLIC_URL + '/images/bkgd.png'})`,
       backgroundRepeat: 'repeat',
-      backgroundSize: 'cover', // 可改为 'contain' or 'cover' 看需求
+      backgroundSize: 'cover',
       backgroundPosition: 'center',
     }}>
       <h1>🍵 Tea Poster Maker</h1>
